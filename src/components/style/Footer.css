@@ -1,0 +1,74 @@
+:root{
+  --primary-light: #465A65;
+  --primary-dark: #1C313A;
+  --secondary-light:#2A60FE;
+  --secondary-dark:#0039CB;
+  --red-dark: #9A0007;
+  --red-light:#D22E2D;
+  --gray-dark: #AEAEAE;
+  --gray-light:#E0E0E0;
+}
+
+.footer_wrapper {
+  background-color: var(--primary-light);
+    padding: 22px 10px;
+}
+
+
+footer a {
+  text-decoration: none;
+}
+
+
+.footer_right i {
+  color: var(--primary-dark);
+  font-size: 1.6rem;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.footer_menu {
+  display: flex;
+  align-items: center;
+  column-gap: 2.6rem;
+  padding: 11px;
+}
+
+.footer_nav_list {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 24px;
+  transition: .3s;
+}
+.footer_social {
+  display: flex;
+  justify-content: flex-end;
+  padding: 11px;
+}
+
+.footer_nav_list:hover {
+  color: var(--gray-light);
+}
+
+.footer_nav_active {
+  color: var(--gray-light);
+}
+
+
+.footer_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer_desc{
+  padding: 10px;
+}
+
+
+.footer_desc i{
+  font-size: 1.2rem;
+}
