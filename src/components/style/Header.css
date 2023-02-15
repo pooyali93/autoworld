@@ -15,11 +15,17 @@ header {
 
 .header_right a {
    text-decoration: none;
+   outline: none;
+}
+
+.header_right i:hover {
+  color: var(--red-dark);
 }
 
 .header_right i {
   color: var(--primary-dark);
   font-size: 1.6rem;
+  
  
 }
 
@@ -45,6 +51,7 @@ header {
   text-transform: capitalize;
   line-height: 24px;
   transition: .3s;
+  outline: none;
 }
 
 .nav_list:hover {
