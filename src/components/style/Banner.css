@@ -28,11 +28,11 @@
 
 .hero_section {
   background: #fff;
-  width: 600px;
-  height: 140px;
+  width: 520px;
+  height: 160px;
   position: relative;
-  bottom: 28%;
-  left: 50%;
+  bottom:-10px;
+  left:0;
   border-radius: 10px;
   padding: 20px;
 
@@ -59,3 +59,5 @@ label {
   display: block;
   margin-bottom: 5px;
 }
+
+

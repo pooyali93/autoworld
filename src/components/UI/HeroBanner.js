@@ -1,23 +1,17 @@
-import React, { useState } from 'react'
-import { Container} from 'reactstrap'
+import React from 'react'
+import { Container } from 'reactstrap'
+import Form from '../UI/Form';
+import useLoad from '../api/useLoad';
+import '../style/Banner.css';
+import { useNavigate } from 'react-router-dom';
 
-const HeroBanner = (props) => {
-  const [selectedMake, setSelectedMake] = useState(null);
-  const [selectedModel, setSelectedModel] = useState(null);
 
-  const handleMakeChange = (event) => {
-    setSelectedMake(event.target.value);
-    setSelectedModel(null);
-  }
+const HeroBanner = ({navigation}) => {
 
-  const handleModelChange = (event) => {
-    setSelectedModel(event.target.value);
-  }
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.onFilter(selectedMake, selectedModel);
-  }
+
+  const [vehicles, , loadVehicleMessage,] = useLoad('/vehicles');
 
   return (
     <>
@@ -29,47 +23,65 @@ const HeroBanner = (props) => {
         </Container>
 
         <Container>
-        <div className="hero_section">
-        <div className="hero_sec_detail"> Filter your search</div>
-        <div className="hero_form">
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <label className='make_label'>
-                  Make:
-                  <select value={selectedMake} onChange={handleMakeChange}>
-                    <option value="">Select make...</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Honda">Honda</option>
-                    <option value="Ford">Ford</option>
-                  </select>
-                </label>
-              </div>
-              <div className="form-group">
-                <label className='model_label'>
-                  Model:
-                  <select value={selectedModel} onChange={handleModelChange} disabled={!selectedMake}>
-                    <option value=""> Select model...</option>
-                    {selectedMake === "Toyota" && <option value="Camry">Camry</option>}
-                    {selectedMake === "Toyota" && <option value="Corolla">Corolla</option>}
-                    {selectedMake === "Honda" && <option value="Civic">Civic</option>}
-                    {selectedMake === "Honda" && <option value="Accord">Accord</option>}
-                    {selectedMake === "Ford" && <option value="F-150">F-150</option>}
-                    {selectedMake === "Ford" && <option value="Mustang">Mustang</option>}
-                  </select>
-                </label>
-              </div>
-              <button type="submit" className="search_btn" disabled={!selectedMake || !selectedModel}>Search</button>
+          <div className="hero_section">
+            <div className="hero_sec_detail"> Filter your search</div>
+            <div className="hero_form">
+              <Form>
+                <Form.Item
+                  label="Make"
+                  htmlFor="VEHICLE_ID"
+                >
+                  {
+                    !vehicles
+                      ? <p>{loadVehicleMessage}</p>
+                      : vehicles.length === 0
+                        ? <p>No Vehicles found</p>
+                        : <select
+                          name="VEHICLE_ID"
+                          value={vehicles.VEHICLE_ID}
+                        >
+                          <option value="0" disabled>Select Make</option>
+                          {
+                            vehicles.map((vehicle) => <option key={vehicle.VEHICLE_ID} value={vehicle.VEHICLE_ID}>{vehicle.MAKE}</option>)
+                          }
+                        </select>
+                  }
+                </Form.Item>
+
+                <Form.Item
+                  label="Model"
+                  htmlFor="VEHICLE_ID"
+                >
+                  {
+                    !vehicles
+                      ? <p>{loadVehicleMessage}</p>
+                      : vehicles.length === 0
+                        ? <p>No Vehicles found</p>
+                        : <select
+                          name="VEHICLE_ID"
+                          value={vehicles.VEHICLE_ID}
+                        >
+                          <option value="0" disabled>Select Model</option>
+                          {
+                            vehicles.map((vehicle) => <option key={vehicle.VEHICLE_ID} value={vehicle.VEHICLE_ID}>{vehicle.MODEL}</option>)
+                          }
+                        </select>
+                  }
+                </Form.Item>
+                <button type="submit" className="search_btn" onClick={() => navigate('/carlist')}>
+                  Search
+                </button>
+
+              </Form>
+
+
             </div>
-           
-          </form>
-        </div>
-      </div>
+          </div>
 
         </Container>
       </div>
 
-      
+
 
 
     </>

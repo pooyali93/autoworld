@@ -1,0 +1,8 @@
+.car_item {
+  border: 1px solid #E4ECEF;
+  padding: 20px;
+}
+
+.car_item_info span i {
+  color: #0e4357;
+}

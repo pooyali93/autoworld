@@ -5,7 +5,7 @@ export const navigation = [
   },
   {
     text: "Used Car",
-    path: "/usedcar",
+    path: "/carlist",
   },
   {
     text: "About",
