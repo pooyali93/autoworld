@@ -34,15 +34,15 @@ const Footer = () => {
             <div className="footer_social">
             <div className="footer_right d-flex align-items-center justify-content-end gap-2">
                 <Link to="#" className="d-flex align-items-center">
-                <i class="ri-facebook-fill"></i>
+                <i className="ri-facebook-fill"></i>
                 </Link>
 
                 <Link to="#" className="d-flex align-items-center">
-                <i class="ri-twitter-fill"></i>
+                <i className="ri-twitter-fill"></i>
                 </Link>
 
                 <Link to="#" className="d-flex align-items-center">
-                  <i class="ri-instagram-line"></i>
+                  <i className="ri-instagram-line"></i>
                 </Link>
               </div>
             </div>

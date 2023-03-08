@@ -15,7 +15,7 @@ const Home = () => {
       </section>
 
       <section>
-        <Container>
+        <Container className='pb-5'>
           <Row>
             <Col lg='12' className='text-center mb-5'>
             </Col>

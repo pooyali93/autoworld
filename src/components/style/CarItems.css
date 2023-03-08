@@ -1,8 +1,71 @@
-.car_item {
+.card_item {
+  position: relative;
   border: 1px solid #E4ECEF;
   padding: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.car_item_info span i {
+.card_item:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card_item .favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.6rem;
+  z-index: 2;
+  color: #7A1216;
+}
+
+
+.card_item_info {
+  flex-wrap: wrap;
+}
+
+.card_item_info span i {
   color: #0e4357;
+}
+
+.card_item_detail h4 {
+  font-size: 1.4rem;
+  color: #0a3241;
+}
+
+.card_item_detail h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color:#7A1216;
+}
+
+.item_btn {
+  width: 100%;
+  padding: 6px 0px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: #0e4357;
+  cursor: pointer;
+  color: white;
+}
+
+.item_btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.item_btn a:hover {
+  color: white;
+}
+
+.book_card_btn {
+  border-radius: 5px;
+}
+
+
+
+.book_card_btn:hover {
+  background:#7A1216;
+  color: white;
 }

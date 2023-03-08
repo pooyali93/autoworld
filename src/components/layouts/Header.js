@@ -23,7 +23,7 @@ const Header = () => {
             <div className="main_nav">
               <div className="nav_wrapper d-flex align-items-center justify-content-between">
                 <span className="mobile_nav">
-                  <i class="ri-menu-line"></i>
+                  <i className="ri-menu-line"></i>
                 </span>
                 <div className="nav">
                   <ul className="menu">
@@ -48,11 +48,11 @@ const Header = () => {
           <Col lg="3" md="3" sm="4">
             <div className="header_right d-flex align-items-center justify-content-end gap-4">
               <Link to="#" className="d-flex align-items-center">
-                <i class="ri-heart-fill"></i>
+                <i className="ri-heart-fill"></i>
               </Link>
 
               <Link to="#" className="d-flex align-items-center">
-                <i class="ri-user-fill"></i>
+                <i className="ri-user-fill"></i>
               </Link>
             </div>
           </Col>
