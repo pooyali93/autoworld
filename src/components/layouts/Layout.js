@@ -1,21 +1,16 @@
-import React, { Fragment } from 'react'
-import '../style/Layout.css'
-import Header from './Header'
-import Footer from './Footer'
-import Routers from '../routers/Routers'
+import './Layout.css'
+import Header from './Header.js'
+import Footer from './Footer.js'
 
 
-const Layout = () => {
+export default function Layout(props) {
   return (
-    <Fragment>
+    <>
       <Header />
-      <div className='home_page'>
-        <Routers />
-      </div>
+        <div className='home_page'>
+          {props.children}
+        </div>
       <Footer />
-    </Fragment>
-    
+    </>
   )
-}
-
-export default Layout;
+};

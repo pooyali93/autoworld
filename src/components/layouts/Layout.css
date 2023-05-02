@@ -1,0 +1,13 @@
+.home_page {
+  /* background: #e9ebee; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutContainer {
+  /* background: #e9ebee; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
