@@ -2,7 +2,6 @@
   position: relative;
   border: 1px solid #E4ECEF;
   padding: 20px;
-  cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
 }
 
@@ -17,6 +16,7 @@
   font-size: 1.6rem;
   z-index: 2;
   color: #7A1216;
+  cursor: pointer;
 }
 
 
@@ -69,3 +69,12 @@
   background:#7A1216;
   color: white;
 }
+
+/* select {
+  max-width: 30%;
+  padding: 3px;
+  margin: 3px 0;
+  font-size: 100%;
+  border-radius: 0;
+  border: 1px solid LightGrey;
+} */

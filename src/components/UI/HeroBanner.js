@@ -1,17 +1,17 @@
 import React from 'react'
 import { Container } from 'reactstrap'
-import Form from '../UI/Form';
-import useLoad from '../api/useLoad';
-import '../style/Banner.css';
-import { useNavigate } from 'react-router-dom';
+// import Form from '../UI/Form';
+// import useLoad from '../api/useLoad';
+import '../layouts/Banner.css';
+//import { useNavigate } from 'react-router-dom';
 
 
 const HeroBanner = ({navigation}) => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
-  const [vehicles, , loadVehicleMessage,] = useLoad('/vehicles');
+  // const [vehicles, , loadVehicleMessage,] = useLoad('/vehicles');
 
   return (
     <>
@@ -22,7 +22,7 @@ const HeroBanner = ({navigation}) => {
           </div>
         </Container>
 
-        <Container>
+        {/* <Container>
           <div className="hero_section">
             <div className="hero_sec_detail"> Filter your search</div>
             <div className="hero_form">
@@ -78,7 +78,7 @@ const HeroBanner = ({navigation}) => {
             </div>
           </div>
 
-        </Container>
+        </Container> */}
       </div>
 
 

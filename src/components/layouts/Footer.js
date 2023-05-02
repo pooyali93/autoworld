@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap';
-import '../style/Footer.css';
-import { navigation } from "../data/Data";
-import { Link, NavLink } from "react-router-dom";
+import './Footer.css';
+import { Link } from "react-router-dom";
+import Navbar from './Navbar';
 
-const Footer = () => {
+export default function Footer () {
   return (
     <footer className="footer">
       <div className="footer_wrapper">
@@ -13,19 +13,7 @@ const Footer = () => {
           <Col lg="6" md="4" sm="12">
           <div className="footer_nav">
                     <ul className="footer_menu">
-                      {navigation.map((list, index) => (
-                        <NavLink
-                          to={list.path}
-                          key={index}
-                          className={(navClass) =>
-                            navClass.isActive
-                              ? "footer_nav_active footer_nav_list"
-                              : "footer_nav_list"
-                          }
-                        >
-                          {list.text}
-                        </NavLink>
-                      ))}
+                      <Navbar/>
                     </ul>
                   </div>
           </Col>
@@ -59,7 +47,7 @@ const Footer = () => {
       <Row>
         <Col lg="12">
             <div className="footer_bottom ">
-              <p className="footer_desc d-flex justify-content-center"><i class="ri-copyright-line"></i>2023, Developed by Pooya</p>
+              <p className="footer_desc d-flex justify-content-center"><i className="ri-copyright-line"></i>2023, Developed by Pooya</p>
             </div>
           </Col>
         </Row>
@@ -69,6 +57,4 @@ const Footer = () => {
 
  
   )
-}
-
-export default Footer
+};

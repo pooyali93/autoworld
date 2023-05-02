@@ -1,70 +1,75 @@
 import { useState } from 'react';
-import '../style/Form.css'
+import './Form.scss'
+import Button from './Button';
 
 
-export default function Form({ children, onSubmit, onCancel }) {
+export default function Form({ children, onSubmit }) {
   // Initialisation ------------------------------
   // Hooks ---------------------------------------
   // State ---------------------------------------
   // Context -------------------------------------
   // Handlers ------------------------------------
-  // const handleSubmit = () => onSubmit();
-  // const handleCancel = () => onCancel();
-  return(
+  const handleSubmit = () => onSubmit();
+  // console.log(`CustomerForm | handleFormSubmit | onSubmit [${onFormSubmit}]`)
+  return (
     <div className='BorderedForm'>
       <div className='FormTray'>
         {
           children
         }
       </div>
-      
+
+      <div className="button">
+        <Button color='rgb(58, 110, 165)' text='Submit' onClick={handleSubmit}></Button>
+
+      </div>
+
     </div>
   )
 }
 
-function Item({children, label, htmlFor, advice,error}) {
-    // View ---------
+function Item({ children, label, htmlFor, advice, error }) {
+  // View ---------
   return (
     <div className="FormItem">
-        <label className="FormLabel" htmlFor={htmlFor}>{label}</label>
-        {
-          advice && <p className="FormAdvice">{advice}</p>
-        }
-        {
-          children
-        }
-        {
-          error && <p className="FormError">{error}</p>
-        }
-        
+      <label className="FormLabel" htmlFor={htmlFor}>{label}</label>
+      {
+        advice && <p className="FormAdvice">{advice}</p>
+      }
+      {
+        children
+      }
+      {
+        error && <p className="FormError">{error}</p>
+      }
+
     </div>
   );
 }
 
-function useForm(initialRecord, {isValid, errorMessage}, onSubmit,onCancel) {
+function useForm(initialRecord, { isValid, errorMessage }, onSubmit) {
   //  Initialisation --------------
   //  States ----------------------
   const [record, setRecord] = useState(initialRecord);
   const [errors, setErrors] = useState(
-    Object.keys(initialRecord).reduce((accum, key) => ({...accum, [key]: null}),{})
+    Object.keys(initialRecord).reduce((accum, key) => ({ ...accum, [key]: null }), {})
   );
 
   // Context ---------------------
   // Methods ---------------------
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const newValue = value ;
-    console.log(newValue, "this is my new value")
-    setRecord({ ...record, [name]: newValue});
-    setErrors({...errors, [name]: isValid[name](newValue) ? null : errorMessage[name]}); //118 :
+    const newValue = value;
+    //console.log(newValue, "this is my new value")
+    setRecord({ ...record, [name]: newValue });
+    setErrors({ ...errors, [name]: isValid[name](newValue) ? null : errorMessage[name] }); //118 :
   };
 
   const isValidRecord = (record) => {
-    console.log(`record =[${JSON.stringify(record)}]`)
     let isRecordValid = true;
     Object.keys(isValid).forEach((key) => {
 
-      if(isValid[key](record[key])) {
+      if (isValid[key](record[key])) {
 
         errors[key] = null;
 
@@ -77,11 +82,12 @@ function useForm(initialRecord, {isValid, errorMessage}, onSubmit,onCancel) {
   }
 
   const handleSubmit = () => {
-    isValidRecord(record) && onSubmit(record) && onCancel(); 
-    setErrors({...errors});
+    // console.log(`Form | handleFormSubmit | onFormSubmit [${onFormSubmit}]`)
+    isValidRecord(record) && onSubmit(record);
+    setErrors({ ...errors });
   }
   // View ---------
-return [record, errors, handleChange, handleSubmit];
+  return [record, errors, handleChange, handleSubmit];
 }
 
 //  Compose  Form Object --------

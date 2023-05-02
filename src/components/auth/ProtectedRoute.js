@@ -2,9 +2,9 @@ import { useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from './useAuth.js';
 
 export default function ProtectedRoute({children}) {
-  const { loggedinUser } = useAuth();
+  const { currentUser } = useAuth();
   const location = useLocation();
-  return loggedinUser
+  return currentUser
     ? children
-    : <Navigate to="/" replace state={{ path: location.pathname }} />;
+    : <Navigate to="/login" replace state={{ path: location.pathname }} />;
 }

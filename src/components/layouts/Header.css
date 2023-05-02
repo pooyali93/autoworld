@@ -1,0 +1,74 @@
+:root{
+  --primary-light: #465A65;
+  --primary-dark: #1C313A;
+  --secondary-light:#2A60FE;
+  --secondary-dark:#0039CB;
+  --red-dark: #9A0007;
+  --red-light:#D22E2D;
+  --gray-dark: #AEAEAE;
+  --gray-light:#E0E0E0;
+}
+
+.header {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.logo img {
+  max-width: 100%;
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header_right .nav_list {
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.header_right .welcome .dropdown-toggle {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .header_right {
+    justify-content: center;
+  }
+
+  .header_right .nav_list {
+    margin-right: 3rem;
+  }
+
+  .header_right .welcome .dropdown-toggle {
+    padding: 0.5rem 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .header_right {
+    justify-content: flex-end;
+  }
+
+  .header_right .nav_list {
+    margin-right: 4rem;
+  }
+
+  .header_right .welcome .dropdown-toggle {
+    padding: 0.4rem .8rem;
+  }
+}

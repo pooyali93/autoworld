@@ -9,25 +9,6 @@
   --gray-light:#E0E0E0;
 }
 
-header {
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.header_right a {
-   text-decoration: none;
-   outline: none;
-}
-
-.header_right i:hover {
-  color: var(--red-dark);
-}
-
-.header_right i {
-  color: var(--primary-dark);
-  font-size: 1.6rem;
-  
- 
-}
 
 .mobile_nav i {
   color: var(--primary-dark);
@@ -42,6 +23,7 @@ header {
   column-gap: 2.6rem;
   padding: 8px;
 }
+
 
 .nav_list {
   color: var(--primary-dark);
@@ -61,22 +43,3 @@ header {
 .nav_active {
   color: var(--red-dark);
 }
-
-/* 
-header img {
-  width: 170px;
-}
-
-header a {
-  margin-left: 30px;
-  transition: 0.5s;
-  font-weight: 500;
-}
-header a:hover {
-  color: var(--primary-dark);
-  border: none;
-}
-
-header .toggle {
-  display: none;
-} */

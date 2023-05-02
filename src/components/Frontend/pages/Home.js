@@ -1,13 +1,12 @@
 import React from 'react'
-import Banner from '../layouts/Banner'
-import '../style/Home.css'
-import '../style/Banner.css'
-import { CarItems } from '../UI/CarItems'
-
-import HeroBanner from '../UI/HeroBanner'
+import Banner from '../../layouts/Banner.js'
+import './Home.css'
+import  CarItems from '../../UI/CarItems.js'
+import HeroBanner from '../../UI/HeroBanner'
 import { Col, Container, Row } from 'reactstrap'
+import Feedbacks from '../../Portal/pages/Feedbacks.js'
 
-const Home = () => {
+export default function Home () {
   return (
     <Banner title="Home">
       <section className='p-0.hero_section'>
@@ -21,6 +20,10 @@ const Home = () => {
             </Col>
 
             <CarItems/>
+
+            <Col lg="12">
+            <Feedbacks/>
+            </Col>
           </Row>
         </Container>
       </section>
@@ -28,5 +31,3 @@ const Home = () => {
     </Banner>
   )
 }
-
-export default Home;

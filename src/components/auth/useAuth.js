@@ -1,22 +1,38 @@
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { getUserFromLocalStorage, saveUserToLocalStorage } from './LocalStorage'
 
-const AuthContext = createContext(null);
+const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
-
+export const AuthProvider = ({ children }) => {
   // State ---------------------------------------
-  const [loggedinUser, setLoggedinUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = getUserFromLocalStorage();
+    if (storedUser) {
+      setCurrentUser(storedUser);
+    }
+  }, []);
 
   // Methods -------------------------------------
-  const login = (userObj) => setLoggedinUser(userObj);
-  const logout = () => setLoggedinUser(null);
+  const login = (userObj) => {
+    setCurrentUser(userObj);
+    saveUserToLocalStorage(userObj);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("currentUser");
+    setCurrentUser(null);
+  };
+
+  const value = { currentUser, login,logout,};
 
   // Return --------------------------------------
   return (
-    <AuthContext.Provider value={{ loggedinUser, login, logout }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export const useAuth = () => useContext(AuthContext);
