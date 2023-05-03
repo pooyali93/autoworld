@@ -20,10 +20,6 @@ export default function Home () {
             </Col>
 
             <CarItems/>
-
-            <Col lg="12">
-            <Feedbacks/>
-            </Col>
           </Row>
         </Container>
       </section>

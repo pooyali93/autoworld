@@ -8,9 +8,9 @@ export default function Modal({ isOpen, onClose, children }) {
 
   return(
     <div className="modalOverlay">
-      <div className="modal">
+      <div className="modalWrapper">
         <button className="modalClose" onClick={onClose}>
-          <FaWindowClose/>Close
+          <FaWindowClose/>
         </button>
         <div className="modalContent">{children}</div>
       </div>

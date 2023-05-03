@@ -1,91 +1,95 @@
-$primary-color: rgb(40, 40, 66);
-$secondary-color:rgb(58, 110, 165);
-$gray-color:rgb(192, 192, 192);
-$light-color:rgb(235, 235, 235);
-$orange-color:rgb(209, 69, 50);
-$black-color:rgb(22, 26, 29);
 
 
 form {
     width: 100%;
-    padding: 10px 0; 
+    padding: 10px 0;
     margin: 0 auto;
-  
-    &.BorderedForm {
-      margin: 10px 0;
-      padding: 20px;
-      border: 1px solid $gray-color;
-      border-radius: 5px;
-    }
-  
-    div.FormTray {
-      width: 33%;
-      margin-bottom: 20px;
-  
-  
-    }
-  }
-
-
-div.FormItem {
-    margin-bottom: 20px;
-
-    label.FormLabel {
-        display: block;
-        font-weight: 600;
-    }
-    p.FormAdvice {
-        color: $secondary-color; 
-        font-weight: 400;
-        font-size: 90%;
-        margin: 0;
-        padding: 0;
     }
     
-    select,input {
+    form.BorderedForm {
+    margin: 10px 0;
+    padding: 20px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    }
+    
+    div.FormTray {
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    
+    div.FormItem {
+    margin-bottom: 20px;
+    }
+    
+    div.FormItem label.FormLabel {
+    display: block;
+    font-weight: 600;
+    }
+    
+    div.FormItem p.FormAdvice {
+    color: #3A6EA5;
+    font-weight: 400;
+    font-size: 90%;
+    margin: 0;
+    padding: 0;
+    }
+    
+    div.FormItem select,
+    div.FormItem input {
     min-width: 100%;
     padding: 3px;
     margin: 1px 0;
     font-size: 100%;
     border-radius: 0px;
-    border: 1px solid $gray-color;
+    border: 1px solid #808080;
     background: White;
-
-    &::placeholder,
-    &:disabled {
-        color: Grey;
-        font-weight: 300;
     }
-
-    &:hover,
-    &:focus {
-        outline-width: 1px;
-        outline-color: red;
-        outline-style: solid;
-        border-width: 1px;
-        border-style: solid;;
+    
+    div.FormItem select::placeholder,
+    div.FormItem input::placeholder,
+    div.FormItem select:disabled,
+    div.FormItem input:disabled {
+    color: Grey;
+    font-weight: 300;
     }
-    &:hover { 
-        border-color: $orange-color; 
-        outline-color: $gray-color; 
+    
+    div.FormItem select:hover,
+    div.FormItem input:hover,
+    div.FormItem select:focus,
+    div.FormItem input:focus {
+    outline-width: 1px;
+    outline-color: red;
+    outline-style: solid;
+    border-width: 1px;
+    border-style: solid;
     }
-    &:focus { 
-        border-color: $secondary-color; 
-        outline-color: $secondary-color; 
+    
+    div.FormItem select:hover,
+    div.FormItem input:hover {
+    border-color: #3A6EA5;
+    outline-color: #808080;
     }
-
-    &[type="number"] { text-align: left; }
-
-    &.FormError {
-        border-color: $secondary-color; 
-        outline-color: $secondary-color; 
+    
+    div.FormItem select:focus,
+    div.FormItem input:focus {
+    border-color: #000080;
+    outline-color: #000080;
     }
+    
+    div.FormItem input[type="number"] {
+    text-align: left;
     }
-
-    p.FormError {
-    color: $orange-color; 
+    
+    div.FormItem select.FormError,
+    div.FormItem input.FormError {
+    border-color: #000080;
+    outline-color: #000080;
+    }
+    
+    div.FormItem p.FormError {
+    color: #9A0007;
     font-weight: 400;
     font-size: 90%;
     margin: 0;
     }
-}

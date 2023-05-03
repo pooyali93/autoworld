@@ -31,18 +31,18 @@ export default function Users() {
   return (
     <Container className='mw-100  p-3'>
       <Row>
-        <Col sm='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
+        <Col sm='12' md='12' lg='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
           <Sidebar />
         </Col>
-        <Col xs="10 mt-4">
-          <div className="button">
+        <Col xs="10 mt-4 m-auto">
+        <div className="addBtn">
             <Button color='rgb(58, 110, 165)' iconName={<FaPlus />} text='Add New User' onClick={toggleAddForm} ></Button>
           </div>
           <div className="form-container">
             {showAddUsersForm && <UserForm onCancel={cancelAddForm} onSubmit={handleAddUserSubmit} />}
           </div>
 
-          <div className="form-container">
+
             {
               !users
                 ? <p>{loadingMessage}</p>
@@ -51,7 +51,6 @@ export default function Users() {
 
                   : <UserPanels users={users} reloadUsers={() => loadUsers(endpoint)} />
             }
-          </div>
 
 
         </Col>

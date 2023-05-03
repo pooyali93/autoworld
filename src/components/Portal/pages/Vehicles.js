@@ -33,31 +33,28 @@ export default function Vehicles() {
     return (
         <Container className='mw-100  p-3'>
             <Row>
-                <Col sm='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
+                <Col sm='12' md='12' lg='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
                     <Sidebar />
                 </Col>
-                <Col xs="8 mt-4 p-5">
-                    <div className="button">
-                        <Button color='rgb(58, 110, 165)' iconName={<FaPlus />} text='Add New User' onClick={toggleAddForm} ></Button>
+                <Col sm="10 mt-4 m-auto">
+                    <div className="addBtn">
+                        <Button color='rgb(58, 110, 165)' iconName={<FaPlus />} text='Add New Vehicle' onClick={toggleAddForm} ></Button>
                     </div>
                     <div className="form-container">
                         {showAddVehicleForm && <VehicleForm onCancel={cancelAddForm} onSubmit={handleAddVehicleSubmit} />}
                     </div>
+                    {
+                        !vehicles
+                            ? <p>{loadingMessage}</p>
+                            : vehicles.length === 0
+                                ? <p className="currentMsg">Currently you don't have any vehicles!</p>
 
-                    <div className="form-container">
-                        {
-                            !vehicles
-                                ? <p>{loadingMessage}</p>
-                                : vehicles.length === 0
-                                    ? <p className="currentMsg">Currently you don't have any vehicles!</p>
-
-                                    : <VehiclePanels vehicles={vehicles} reloadVehicles={() => loadVehicles(endpoint)} />
-                        }
-                    </div>
+                                : <VehiclePanels vehicles={vehicles} reloadVehicles={() => loadVehicles(endpoint)} />
+                    }
 
 
                 </Col>
-                <Col lg="2" xs="8 mt-4 p-5">
+                <Col lg="2" xs="8 mt-4">
                 </Col>
             </Row>
         </Container>

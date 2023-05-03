@@ -44,15 +44,16 @@ export default function Feedbacks() {
     return (
         <Container className='mw-100  p-3'>
             <Row>
-                <Col sm='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
+                <Col sm='12' md='12' lg='2' className='sidebar-wrapper mt-4 mb-5 p-0'>
                     <Sidebar />
                 </Col>
-                <Col xs="10 mt-4">
-                    <Button color='(192, 192, 192)' text='Add Review' onClick={handleOpenModal}></Button>
-                    <Modal isOpen={showModal} onClose={handleCloseModal}>
-                        <FeedbackForm onCancel={handleCloseModal} onSubmit={handleAddFeedbackSubmit} />
-                    </Modal>
-
+                <Col sm="10 mt-4 m-auto" >
+                    <div className="addBtn">
+                        <Button color='rgb(58, 110, 165)' text='Add Review' onClick={handleOpenModal}></Button>
+                        <Modal isOpen={showModal} onClose={handleCloseModal}>
+                            <FeedbackForm onCancel={handleCloseModal} onSubmit={handleAddFeedbackSubmit} />
+                        </Modal>
+                    </div>
                     <div className="panelContainer">
 
                         {

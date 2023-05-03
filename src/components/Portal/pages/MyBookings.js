@@ -1,3 +1,4 @@
+import React,{useState} from "react";
 import API from "../../api/API.js";
 import useLoad from "../../api/useLoad.js";
 import './MyBookings.scss'
@@ -30,6 +31,7 @@ export default function MyBookings() {
 
     // State --------
     const [bookings, , loadingMessage, loadBookings] = useLoad(endpoint)
+    const [showModal, setShowModal] = useState(false);
 
 
 
@@ -37,11 +39,14 @@ export default function MyBookings() {
     // Methods ---------
 
     const handleAddSubmit = async (booking) => {
-        console.log(`handleAddSubmit ${booking}`);
+
+        
         const response = await API.post(endpoint, booking);
         return response.isSuccess
             ? loadBookings(endpoint) || true
             : false;
+            
+        
     }
 
     const currentUserBookings = bookings ? bookings.filter(booking => booking.Customer_ID === currentUser.USER_ID || booking.Salesperson_ID === currentUser.USER_ID) : [];
@@ -75,6 +80,14 @@ export default function MyBookings() {
 
                     </Col>
                     : null
+                }
+                {showModal &&
+                    <div className="modal">
+                        <div className="modal-content">
+                            <h2>Booking confirmed!</h2>
+                            <button onClick={() => setShowModal(false)}>Close</button>
+                        </div>
+                    </div>
                 }
             </Row>
         </Container>
