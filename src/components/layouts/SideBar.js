@@ -7,22 +7,28 @@ export default function Sidebar() {
     const { currentUser } = useAuth();
     return (
         <nav>
-            <div className="navItem">
-                <NavLink to="/bookings">Bookings</NavLink>
-            </div>
-            {currentUser && 
-                currentUser.userType === 2 
-                    &&  <>
-                            <div className="navItem">
-                                <NavLink to="/vehicles">Vehicles</NavLink>
-                            </div>
-                            <div className="navItem">
-                                <NavLink to="/users">Users</NavLink>
-                            </div>
-                            <div className="navItem">
-                                <NavLink to="/feedbacks">Reviews</NavLink>
-                            </div>
-                        </>
+            {currentUser && currentUser.userType === 1 &&
+                <>
+                    <div className="navItem">
+                        <NavLink to="/bookings">Bookings</NavLink>
+                    </div>
+                    <div className="navItem">
+                        <NavLink to="/feedbacks">Reviews</NavLink>
+                    </div>
+                </>
+            }
+            {currentUser && currentUser.userType === 2 &&
+                <>
+                    <div className="navItem">
+                        <NavLink to="/bookings">Bookings</NavLink>
+                    </div>
+                    <div className="navItem">
+                        <NavLink to="/vehicles">Vehicles</NavLink>
+                    </div>
+                    <div className="navItem">
+                        <NavLink to="/users">Users</NavLink>
+                    </div>
+                </>
             }
         </nav>
     )

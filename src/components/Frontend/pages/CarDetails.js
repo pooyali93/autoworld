@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import API from "../../api/API.js";
 import { Container, Row, Col } from 'reactstrap'
 import { useLocation } from 'react-router-dom';
@@ -6,6 +6,7 @@ import useLoad from '../../api/useLoad';
 import { useAuth } from '../../auth/useAuth.js';
 import Helper from '../../helpers/Helper';
 import CustomerBookingForm from '../../entities/CustomerBookingForm'
+import Modal from '../../UI/Modal.js';
 
 
 export default function CarDetails() {
@@ -15,13 +16,19 @@ export default function CarDetails() {
   const currentCar = location.state;
   const endpoint = '/bookings'
 
+  const [showModal, setShowModal] = useState(false);
+
 
   // Context --------
   // Methods ---------
+  const handleCloseModal = () => setShowModal(false);
+
   const handleAddSubmit = async (booking) => {
     //console.log(`handleAddSubmit ${booking}`);
     const response = await API.post(endpoint, booking);
-    return response.isSuccess
+    if (response.isSuccess) {
+      setShowModal(true);
+    }
   }
 
   const initialBooking = {
@@ -71,10 +78,13 @@ export default function CarDetails() {
                       </div>
 
                       {/* // first check if the user exist then if the user exist and the usertype is ===1 (customer) show form else hide form   */}
-                      {currentUser && currentUser.userType === 1 ? 
+                      {currentUser && currentUser.userType === 1 ?
                         <Col lg="6 mb-5 mt-4">
                           <div className='d-flex justify-content-flex-end align-items-end'>
                             <CustomerBookingForm initialBooking={initialBooking} onSubmit={handleAddSubmit} />
+                            <Modal title="Conformation..." isOpen={showModal} onClose={handleCloseModal}>
+                              <p>You successfully submitted  </p>
+                            </Modal>
                           </div>
                         </Col>
                         : null

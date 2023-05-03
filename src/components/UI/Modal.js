@@ -1,18 +1,22 @@
-import {FaWindowClose } from "react-icons/fa";
 import "./Modal.scss";
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({ title, children, isOpen, onClose }) {
   if (!isOpen) {
     return null;
   }
 
-  return(
+  return (
     <div className="modalOverlay">
       <div className="modalWrapper">
-        <button className="modalClose" onClick={onClose}>
-          <FaWindowClose/>
+        <div className="modalTitle">{title}</div>
+        <div className="modalContent">
+          {children}
+        </div>
+        <button className="cancelBtn" onClick={onClose}>
+          Close
         </button>
-        <div className="modalContent">{children}</div>
+       
+
       </div>
     </div>
   )

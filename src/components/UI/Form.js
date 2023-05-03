@@ -5,11 +5,15 @@ import Button from './Button';
 
 export default function Form({ children, onSubmit }) {
   // Initialisation ------------------------------
+
   // Hooks ---------------------------------------
   // State ---------------------------------------
   // Context -------------------------------------
   // Handlers ------------------------------------
-  const handleSubmit = () => onSubmit();
+
+    const handleSubmit = () => {
+      onSubmit();
+    };
   // console.log(`CustomerForm | handleFormSubmit | onSubmit [${onFormSubmit}]`)
   return (
     <div className='BorderedForm'>
@@ -21,6 +25,7 @@ export default function Form({ children, onSubmit }) {
 
       <div className="button">
         <Button color='rgb(58, 110, 165)' text='Submit' onClick={handleSubmit}></Button>
+
 
       </div>
 

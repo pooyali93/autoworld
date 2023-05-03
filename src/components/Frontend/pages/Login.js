@@ -26,7 +26,7 @@ export default function Login() {
       if (isCustomer || isEmployee) {
         // User exists, log in
         login(selectedUser);
-        navigate(state?.path || '/bookings');
+        navigate(state?.path || '/carlist');
       } else {
         // User doesn't exist
         alert('Invalid user selected. Please select a valid user.');
